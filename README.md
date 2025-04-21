@@ -3,7 +3,7 @@
 A **random meal generator** web application powered by [TheMealDB API](https://www.themealdb.com). Fetches recipes by random selection, search term, category, or location and displays:
 
 - **Meal Details:** Name, category, area, ingredients with measurements, preparation steps in sentence case.  
-- **Search & Filter:** Search by keyword, browse by category or cuisine (area).  
+- **Search & Filter:** Search by keyword, browse by category or location (area).  
 - **Responsive Design:** Mobile-first layout with flexbox, media queries, and a clean grey-and-white theme.  
 - **Interactive UI:** Sticky header, bottom-centered floating logo, styled images, and animated search bar.  
 
@@ -24,7 +24,7 @@ A **random meal generator** web application powered by [TheMealDB API](https://w
 No API key is required for the free MealDB endpoints used.
 
 ## 📁 Project Structure
-   ```bash
+   `psql -P format=markdown`
    GourmetShuffle/
    ├── index.js             # Express server & route handlers
    ├── package.json         # Project metadata & dependencies
@@ -41,3 +41,13 @@ No API key is required for the free MealDB endpoints used.
        │   └── styles.css   # Global styles & media queries
        └── images/          # Logos & placeholders.
 
+## 🛠 Dependencies
+- Express: Web framework
+
+- EJS: Templating engine
+
+- Axios: HTTP client
+
+- Body-Parser: Request parsing middleware
+## ⚖️ License
+This project is licensed under the ISC License. Feel free to customize and extend!
