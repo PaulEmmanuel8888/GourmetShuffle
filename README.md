@@ -40,6 +40,7 @@ No API key is required for the free MealDB endpoints used.
        ├── styles/
        │   └── styles.css   # Global styles & media queries
        └── images/          # Logos & placeholders.
+```
 
 ## 🛠 Dependencies
 - Express: Web framework
