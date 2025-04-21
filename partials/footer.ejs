@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+
+    <footer>
+        <p class="current-date" id="current-date">&copy;</p>
+        <h2>GourmetShuffle</h2>
+    </footer>
+
+
+    <script>
+        const currentDate = document.getElementById('current-date');
+
+        let date = new Date().getFullYear();
+        currentDate.innerText = `©${date}`;
+
+    </script>    
+</body>
+</html>

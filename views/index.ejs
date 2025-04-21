@@ -10,44 +10,72 @@
     </style>
 </head>
 <body>
-    <header>
-        <a href="/">
-            <img class="logo-img" src="/images/gourmet.png" alt="">
-        </a>
-    </header>
+    <%- include('../partials/header.ejs') %>
     <div class="container">
-        <div class="main">
-            <div class="top_section">
-                <div class="food-img-div">
-                    <img class="food-img" src="<%= meal.image %>" alt="">
-                </div>
-                <div class="intro">
-                    <p class="meal-category">#<%= meal.category %> (<%= meal.location %>)</p>
-                    <h2 class="name"><%= meal.name %></h2>
-                    <p class="meal-ingredients"><%= meal.ingredients %></p>
-                </div>
+        <% if (locals.results && locals.results.length) { %>
+            <div class=" results-main">
+            <h2 class="search-title">Results for “<%= query %>”</h2>
+                <% results.forEach(meal => { %>
+                    
+                    <div class="top_section meal-div">
+                        <div class="food-img-div">
+                            <img class="food-img" src="<%= meal.image %>" alt="">
+                        </div>
+                        <div class="intro">
+                            <p class="meal-category">#<a href="/category/<%= meal.category %>"><%= meal.category %> </a> <span class="meal-location"> <a href="/location/<%= meal.location %>"> (<%= meal.location %>)</a></span></p>
+                            <a href="/getmeal/<%= meal.id %>">
+                                <h2 class="name random-meal-name"><%= meal.name %></h2>
+                                <p class="meal-ingredients random-meal-ingredients"><%= meal.ingredients %></p>
+                            </a>
+                        </div>
+                    </div>
+                <% }) %>
+
             </div>
-            <div class="bottom_section">
-                <h2 class="preparation-title">Preparation</h2>
-                <hr>
+            </div>
+         <% } else if (locals.meal) { %>
+            <div class="main">
+                <div class="top_section">
+                    <div class="food-img-div">
+                        <img class="food-img" src="<%= meal.image %>" alt="">
+                    </div>
+                    <div class="intro">
+                        <p class="meal-category">#<a href="/category/<%= meal.category %>"><%= meal.category %> </a> <span class="meal-location"> <a href="/location/<%= meal.location %>"> (<%= meal.location %>)</a></span></p>
+                        <h2 class="name"><%= meal.name %></h2>
+                        <p class="meal-ingredients"><%= meal.ingredients %></p>
+        
+                    </div>
+                </div>
+                <div class="bottom_section">
+                    <h2 class="preparation-title">Preparation</h2>
+                    <hr>
+                    
+                        <ol class="preparation-steps">
+                            <% meal.instructions.forEach(function(step) { %>
+                              <li><%= step.trim() %></li>
+                            <% }); %>
+                          </ol>
+                </div>
                 
-                    <ol class="preparation-steps">
-                        <% meal.instructions.forEach(function(step) { %>
-                          <li><%= step.trim() %></li>
-                        <% }); %>
-                      </ol>
+                
             </div>
-            <div class="floating-logo">
-                <a href="/">
-                    <img class="logo-img floating-logo-img" src="/images/gourmet.png" alt="">
-                </a>
-            </div>
-        </div>
+            <% } else { %>
+             <div class="main">
+                <div class="top_section">
+                    <div class="no-result">
+                        <h2 class="search-title no-meal-title">No meal found for "<%= query %>"</h2>
+                        <img class="empty-plate" src="/images/plate-img.png" alt="" srcset="">
+                    </div>
+                </div>
+             </div>
+        <% } %>
+        
 
         
     </div>
 
     
-    
+    <%- include('../partials/floating.ejs') %>
+    <%- include('../partials/footer.ejs') %>
 </body>
 </html>
