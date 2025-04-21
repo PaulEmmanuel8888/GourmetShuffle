@@ -24,7 +24,7 @@ A **random meal generator** web application powered by [TheMealDB API](https://w
 No API key is required for the free MealDB endpoints used.
 
 ## 📁 Project Structure
-   `\pset format markdown`
+   ```bash
    GourmetShuffle/
    ├── index.js             # Express server & route handlers
    ├── package.json         # Project metadata & dependencies
