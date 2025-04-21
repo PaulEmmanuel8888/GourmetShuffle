@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <div class="container ">
+        <div class="main">
+            <div class="menu_top_section top_section">
+                <h1 class="menu_title">Menu Page</h1>
+                <div class="options_div">
+                    <div class="options active categories-div" id="categories-div"><h2>Categories</h2></div>
+                    <div class="options locations-div" id="locations-div"><h2>Locations</h2></div>
+                </div>
+                <div class="content-div">
+                    <div class="content active categories-list" id="categories-list">
+                        <% categories.forEach(category => { %>
+                            <a href="/category/<%= category %>">
+                                <h3><%= category %></h3>
+                            </a>
+                        <% }) %>
+                    </div>
+                    <div class="content locations-list" id="locations-list">
+                        <% locations.forEach(location => { %>
+                            <a href="/location/<%= location %>">
+                                <h3><%= location %></h3>
+                            </a>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+    <%- include('../partials/floating.ejs') %>
+    <%- include('../partials/footer.ejs') %>
+
+    <script defer>
+
+        const categoriesDiv = document.getElementById('categories-div');
+        const locationsDiv = document.getElementById('locations-div');
+        const categoriesList = document.getElementById('categories-list');
+        const locationsList = document.getElementById('locations-list');
+
+        categoriesDiv.addEventListener('click', ()=> {
+            locationsDiv.classList.remove('active');
+            categoriesDiv.classList.add('active');
+            locationsList.classList.remove('active');
+            categoriesList.classList.add('active');
+        })
+        locationsDiv.addEventListener('click', ()=> {
+            locationsDiv.classList.add('active');
+            categoriesDiv.classList.remove('active');
+            locationsList.classList.add('active');
+            categoriesList.classList.remove('active');
+        })
+
+    </script>
+</body>
+</html>

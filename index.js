@@ -288,6 +288,42 @@ app.get('/location/:location', async (req, res) => {
     }
 });
 
+app.get('/menu', async (req, res)=>{
+
+  let categories = [];
+  let locations = [];
+
+  try {
+
+    const response = await axios.get(`${API_URL}/list.php?c=list`);
+    const mealCategory = response.data.meals;
+
+    for (let index = 0; index < mealCategory.length; index++) {
+      const meal = mealCategory[index].strCategory;
+      categories.push(meal);
+    }
+    const locationResponse = await axios.get(`${API_URL}/list.php?a=list`);
+    const mealLocation = locationResponse.data.meals;
+
+    for (let index = 0; index < mealLocation.length; index++) {
+      const location = mealLocation[index].strArea;
+      locations.push(location);
+    }
+
+
+
+
+    res.render('menu.ejs', {
+      categories: categories,
+      locations: locations,
+    });
+    
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error fetching detailed meals');
+  }
+
+})
 
 app.listen(PORT, (req, res) => {
     console.log(`Server running at port ${PORT}.`);
