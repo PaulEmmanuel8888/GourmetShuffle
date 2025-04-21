@@ -14,3 +14,30 @@ A **random meal generator** web application powered by [TheMealDB API](https://w
    git clone https://github.com/PaulEmmanuel8888/GourmetShuffle.git
    cd GourmetShuffle
 2. **Install dependencies**
+   ```bash
+   npm install
+3. **Run the app**
+   ```bash
+   node index.js
+4. **Open http://localhost:3000 in your browser.**
+
+No API key is required for the free MealDB endpoints used.
+
+## 📁 Project Structure
+   ```bash
+   GourmetShuffle/
+   ├── index.js             # Express server & route handlers
+   ├── package.json         # Project metadata & dependencies
+   ├── .gitignore
+   ├── partials/            # Reusable EJS components
+   │   ├── header.ejs
+   │   ├── footer.ejs
+   │   └── floating.ejs     # Bottom-centered logo
+   ├── views/               # EJS templates
+   │   ├── index.ejs        # Main/random/search view
+   │   └── menu.ejs         # Category/location menu view
+   └── public/
+       ├── styles/
+       │   └── styles.css   # Global styles & media queries
+       └── images/          # Logos & placeholders.
+
