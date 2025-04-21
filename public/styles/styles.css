@@ -374,6 +374,11 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     .search-title {
         font-size: 1.7rem;
     }
+    footer {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.9rem;
+    }
 }
 
 .results-main {
@@ -403,6 +408,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .empty-plate {
     width: 15rem;
     height: 15rem;
+}
+
+footer {
+    font-size: 1rem;
 }
 
 
