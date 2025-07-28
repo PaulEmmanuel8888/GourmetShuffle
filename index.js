@@ -56,16 +56,14 @@ app.get("/", async (req, res) => {
   }
 });
 
-// Change this to POST if your form is POSTing
 app.post("/search", async (req, res) => {
   try {
-    const searchTerm = req.body.search; // ensure your <form method="POST"…>
+    const searchTerm = req.body.search;
     const resp = await axios.get(
       `${API_URL}/search.php?s=${encodeURIComponent(searchTerm)}`
     );
-    const meals = resp.data.meals || []; // array or empty
+    const meals = resp.data.meals || [];
 
-    // helper from your GET "/"
     function toSentenceCase(str) {
       if (!str) return "";
       return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
